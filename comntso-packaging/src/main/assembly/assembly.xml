@@ -1,0 +1,52 @@
+<assembly
+	xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+
+	<id>Packaging</id>
+
+	<baseDirectory>/</baseDirectory>
+	<formats>
+		<format>zip</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+
+	<fileSets>
+		<fileSet>
+			<directory>src/main/resources/bin/</directory>
+			<outputDirectory>/bat</outputDirectory>
+		</fileSet>
+		<fileSet>
+			<directory>../comntso-batch/conf_externe</directory>
+			<outputDirectory>/conf</outputDirectory>
+			<includes>
+				<include>*.properties</include>
+			</includes>
+		</fileSet>
+		<fileSet>
+			<!-- pour la creation du repertoire de livraison -->
+			<directory>src/main/resources/bin/</directory>
+			<outputDirectory>/doc</outputDirectory>
+			<excludes>
+				<exclude>*</exclude>
+			</excludes>
+		</fileSet>
+		<fileSet>
+			<!-- pour la creation du repertoire de livraison -->
+			<directory>src/main/resources/bin/</directory>
+			<outputDirectory>/logs</outputDirectory>
+			<excludes>
+				<exclude>*</exclude>
+			</excludes>
+		</fileSet>
+	</fileSets>
+	<dependencySets>
+		<dependencySet>
+			<outputDirectory>/</outputDirectory>
+			<outputFileNameMapping>
+		         TriggerCDSAlarm.${artifact.extension}
+		  </outputFileNameMapping>
+			<useTransitiveDependencies>false</useTransitiveDependencies>
+		</dependencySet>
+	</dependencySets>
+</assembly>

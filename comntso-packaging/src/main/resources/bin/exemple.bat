@@ -1,0 +1,1 @@
+Java -cp ../conf -jar ../TriggerCDSAlarm.jar 13 14
